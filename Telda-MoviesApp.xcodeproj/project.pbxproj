@@ -33,7 +33,7 @@
 		0582E4402E0C0EF0009DDF85 /* Exceptions for "Telda-MoviesApp" folder in "Telda-MoviesApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 0582E4142E0C0EEE009DDF85 /* Telda-MoviesApp */;
 		};
