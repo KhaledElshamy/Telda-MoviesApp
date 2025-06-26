@@ -12,7 +12,8 @@ class MoviesListViewController: UIViewController, StoryboardInstantiable, Alerta
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        print("7a7a")
+        view.backgroundColor = .blue
     }
     
     private var viewModel: MoviesListViewModel!

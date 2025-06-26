@@ -15,7 +15,7 @@ final class AppDIContainer {
     // MARK: - Network
     lazy var apiDataTransferService: DataTransferService = {
         let config = ApiDataNetworkConfig(
-            baseURL: URL(string: appConfiguration.apiBaseURL)!,
+            baseURL: URL(string: "https://" + appConfiguration.apiBaseURL)!,
             queryParameters: [
                 "api_key": appConfiguration.apiKey,
                 "language": NSLocale.preferredLanguages.first ?? "en"
@@ -28,7 +28,7 @@ final class AppDIContainer {
     
     lazy var imageDataTransferService: DataTransferService = {
         let config = ApiDataNetworkConfig(
-            baseURL: URL(string: appConfiguration.imagesBaseURL)!
+            baseURL: URL(string: "https://" + appConfiguration.imagesBaseURL)!
         )
         let imagesDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(with: imagesDataNetwork)

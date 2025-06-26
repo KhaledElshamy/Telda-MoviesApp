@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0582E5DE2E0CDB04009DDF85 /* Exceptions for "Telda-MoviesApp" folder in "Telda-MoviesApp" target */ = {
+		0557F7F42E0DB5D30058996C /* Exceptions for "Telda-MoviesApp" folder in "Telda-MoviesApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +43,7 @@
 		0582E4172E0C0EEE009DDF85 /* Telda-MoviesApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				0582E5DE2E0CDB04009DDF85 /* Exceptions for "Telda-MoviesApp" folder in "Telda-MoviesApp" target */,
+				0557F7F42E0DB5D30058996C /* Exceptions for "Telda-MoviesApp" folder in "Telda-MoviesApp" target */,
 			);
 			path = "Telda-MoviesApp";
 			sourceTree = "<group>";
@@ -292,11 +292,12 @@
 				DEVELOPMENT_TEAM = F8QPFBNADD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Telda-MoviesApp/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(App_name)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,11 +321,12 @@
 				DEVELOPMENT_TEAM = F8QPFBNADD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Telda-MoviesApp/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(App_name)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

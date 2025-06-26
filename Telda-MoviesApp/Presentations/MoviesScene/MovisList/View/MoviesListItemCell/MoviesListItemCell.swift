@@ -1,5 +1,5 @@
 //
-//  MoviesListItemCellTableViewCell.swift
+//  MoviesListItemCell.swift
 //  Telda-MoviesApp
 //
 //  Created by Khaled Elshamy on 26/06/2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesListItemCellTableViewCell: UITableViewCell {
+class MoviesListItemCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
