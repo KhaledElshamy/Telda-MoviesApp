@@ -36,6 +36,16 @@ protocol MoviesListViewModelOutput {
 
 typealias MoviesListViewModel = MoviesListViewModelInput & MoviesListViewModelOutput
 
+
 class DefaultMoviesListViewModel: MoviesListViewModel {
     
+    private let searchMoviesUseCase: SearchMoviesUseCase
+    
+    var currentPage: Int = 0
+    var totalPageCount: Int = 1
+    var hasMorePages: Bool { currentPage < totalPageCount }
+    var nextPage: Int { hasMorePages ? currentPage + 1 : currentPage }
+    
+    private var moviesLoadTask: Cancellable? { willSet { moviesLoadTask?.cancel() } }
+    private let mainQueue: DispatchQueueType
 }
