@@ -20,7 +20,7 @@ extension MoviesResponseEntity {
 extension MovieResponseEntity {
     func toDTO() -> MoviesResponseDTO.MovieDTO {
         return .init(id: Int(id),
-                     originalLanguage: .en,
+                     originalLanguage: "en",
                      overview: overview ?? "",
                      posterPath: posterPath ?? "" ,
                      releaseDate: releaseDate ?? "", title: title ?? "")

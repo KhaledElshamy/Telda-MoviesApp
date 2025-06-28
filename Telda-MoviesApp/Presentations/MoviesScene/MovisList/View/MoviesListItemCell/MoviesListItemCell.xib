@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qam-iG-Ksk">
-                        <rect key="frame" x="16" y="7.9999999999999982" width="35" height="22.333333333333329"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qam-iG-Ksk">
+                        <rect key="frame" x="16" y="8" width="35" height="22.333333333333329"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,14 +32,14 @@
                             <constraint firstAttribute="height" constant="109" id="IIh-Su-5XS"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Release Date" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-UO-qye">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Release Date" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-UO-qye">
                         <rect key="frame" x="16" y="34" width="90" height="20"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tb-C7-Uno">
-                        <rect key="frame" x="16" y="60.000000000000007" width="71.333333333333329" height="22.333333333333336"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tb-C7-Uno">
+                        <rect key="frame" x="16" y="60" width="71.333333333333329" height="22.333333333333343"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,6 +50,7 @@
                     <constraint firstItem="Tat-io-Iav" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8tb-C7-Uno" secondAttribute="trailing" constant="8" id="4Pv-wG-kcR"/>
                     <constraint firstItem="Tat-io-Iav" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qam-iG-Ksk" secondAttribute="trailing" constant="8" id="Fa3-zO-GtG"/>
                     <constraint firstItem="U1D-UO-qye" firstAttribute="leading" secondItem="Qam-iG-Ksk" secondAttribute="leading" id="LUl-Pk-7ta"/>
+                    <constraint firstAttribute="bottom" secondItem="8tb-C7-Uno" secondAttribute="bottom" constant="57.670000000000002" id="LcD-JD-fNe"/>
                     <constraint firstItem="Tat-io-Iav" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="NL7-bc-QuY"/>
                     <constraint firstItem="8tb-C7-Uno" firstAttribute="top" secondItem="U1D-UO-qye" secondAttribute="bottom" constant="6" id="OAC-8S-P2S"/>
                     <constraint firstItem="Qam-iG-Ksk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QhJ-ux-2Tq"/>

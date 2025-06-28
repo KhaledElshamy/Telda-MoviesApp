@@ -294,8 +294,6 @@
 				INFOPLIST_FILE = "Telda-MoviesApp/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "$(App_name)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UIMainStoryboardFile = main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,8 +321,6 @@
 				INFOPLIST_FILE = "Telda-MoviesApp/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "$(App_name)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UIMainStoryboardFile = main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (

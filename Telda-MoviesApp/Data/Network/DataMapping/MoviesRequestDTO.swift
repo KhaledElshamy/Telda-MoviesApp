@@ -11,3 +11,7 @@ struct MoviesRequestDTO: Encodable {
     let query: String
     let page: Int
 }
+
+struct PopularMoviesRequestDTO: Encodable {
+    let page:Int
+}

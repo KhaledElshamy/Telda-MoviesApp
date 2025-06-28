@@ -30,7 +30,7 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     
     func makeMoviesListViewController(actions: MoviesListViewModelActions) -> MoviesListViewController {
         MoviesListViewController.create(with: DefaultMoviesListViewModel(searchMoviesUseCase: makeSearchMoviesUseCase()),
-                                        posterImagesRepository: nil)
+                                        posterImagesRepository: makePosterImagesRepository())
     }
     
     func makeMoviesDetailsViewController(movie: Movie) -> UIViewController {
@@ -56,6 +56,12 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     func makeMoviesQueriesRepository() -> MoviesQueriesRepository {
         DefaultMoviesQueriesRepository(
             moviesQueriesPersistentStorage: moviesQueriesStorage
+        )
+    }
+    
+    func makePosterImagesRepository() -> PosterImagesRepository {
+        DefaultPosterImagesRepository(
+            dataTransferService: dependencies.imageDataTransferService
         )
     }
     

@@ -7,18 +7,22 @@
 
 import UIKit
 
-
-class MoviesListViewController: UIViewController, StoryboardInstantiable, Alertable {
+final class MoviesListViewController: UIViewController, StoryboardInstantiable, Alertable {
     
-    @IBOutlet private var MoviesTableView: UITableView!
-    @IBOutlet private var MoviesSearchBar: UISearchBar!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private var moviesListContainer: UIView!
+    @IBOutlet private(set) var suggestionsListContainer: UIView!
+    @IBOutlet private var searchBarContainer: UIView!
     @IBOutlet private var emptyDataLabel: UILabel!
-    var nextPageLoadingSpinner: UIActivityIndicatorView?
     
     private var viewModel: MoviesListViewModel!
     private var posterImagesRepository: PosterImagesRepository?
-    
-    
+
+    private var moviesTableViewController: MoviesListTableViewController?
+    private var searchController = UISearchController(searchResultsController: nil)
+
+    // MARK: - Lifecycle
+
     static func create(
         with viewModel: MoviesListViewModel,
         posterImagesRepository: PosterImagesRepository?
@@ -28,110 +32,119 @@ class MoviesListViewController: UIViewController, StoryboardInstantiable, Alerta
         view.posterImagesRepository = posterImagesRepository
         return view
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupViews()
+        setupViews()
+        setupBehaviours()
         bind(to: viewModel)
     }
-    
-    private func setupViews(){
-        title = viewModel.screenTitle
-        setupSearchBar()
-        setupTableView()
-    }
-    
-    private func setupSearchBar() {
-        MoviesSearchBar.delegate = self
-    }
-    
-    private func setupTableView() {
-        MoviesTableView.dataSource = self
-        MoviesTableView.delegate = self
-        MoviesTableView.register(MoviesListItemCell.self)
-        MoviesTableView.estimatedRowHeight = MoviesListItemCell.height
-        MoviesTableView.rowHeight = UITableView.automaticDimension
-    }
-    
+
     private func bind(to viewModel: MoviesListViewModel) {
         viewModel.items.observe(on: self) { [weak self] _ in self?.updateItems() }
         viewModel.loading.observe(on: self) { [weak self] in self?.updateLoading($0) }
         viewModel.query.observe(on: self) { [weak self] in self?.updateSearchQuery($0) }
         viewModel.error.observe(on: self) { [weak self] in self?.showError($0) }
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.isActive = false
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: MoviesListTableViewController.self),
+            let destinationVC = segue.destination as? MoviesListTableViewController {
+            moviesTableViewController = destinationVC
+            moviesTableViewController?.viewModel = viewModel
+            moviesTableViewController?.posterImagesRepository = posterImagesRepository
+        }
+    }
+
+    // MARK: - Private
+    private func setupViews() {
+        title = viewModel.screenTitle
+        emptyDataLabel.text = viewModel.emptyDataTitle
+        setupSearchController()
+    }
+
+    private func setupBehaviours() {
+        addBehaviors([BackButtonEmptyTitleNavigationBarBehavior(),
+                      BlackStyleNavigationBarBehavior()])
+    }
+
     private func updateItems() {
-        MoviesTableView.reloadData()
+        moviesTableViewController?.reload()
     }
 
     private func updateLoading(_ loading: MoviesListViewModelLoading?) {
         emptyDataLabel.isHidden = true
+        moviesListContainer.isHidden = true
+        suggestionsListContainer.isHidden = true
         LoadingView.hide()
 
         switch loading {
-        case .fullScreen:
-            LoadingView.show()
-            MoviesTableView.tableFooterView = nil
-        case .nextPage:
-            nextPageLoadingSpinner?.removeFromSuperview()
-            nextPageLoadingSpinner = makeActivityIndicator(size: CGSize(width: MoviesTableView.frame.width, height: 44))
-            MoviesTableView.tableFooterView = nextPageLoadingSpinner
+        case .fullScreen: LoadingView.show()
+        case .nextPage: moviesListContainer.isHidden = false
         case .none:
+            moviesListContainer.isHidden = viewModel.isEmpty
             emptyDataLabel.isHidden = !viewModel.isEmpty
-            MoviesTableView.tableFooterView = nil
         }
+
+        moviesTableViewController?.updateLoading(loading)
     }
     
+    private func updateSearchQuery(_ query: String) {
+        searchController.isActive = false
+        searchController.searchBar.text = query
+    }
+
     private func showError(_ error: String) {
         guard !error.isEmpty else { return }
         showAlert(title: viewModel.errorTitle, message: error)
     }
-    
-    private func updateSearchQuery(_ query: String) {
-        MoviesSearchBar.resignFirstResponder()
-        MoviesSearchBar.text = query
+}
+
+// MARK: - Search Controller
+
+extension MoviesListViewController {
+    private func setupSearchController() {
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = viewModel.searchBarPlaceholder
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = true
+        searchController.searchBar.barStyle = .black
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.frame = searchBarContainer.bounds
+        searchController.searchBar.autoresizingMask = [.flexibleWidth]
+        searchBarContainer.addSubview(searchController.searchBar)
+        definesPresentationContext = true
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.accessibilityIdentifier = AccessibilityIdentifier.searchField
+        }
     }
 }
 
 extension MoviesListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        searchController.isActive = false
         viewModel.didSearch(query: searchText)
     }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         viewModel.didCancelSearch()
     }
 }
 
-extension MoviesListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.items.value.count
+extension MoviesListViewController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(for: indexPath) as? MoviesListItemCell else {
-            return UITableViewCell()
-        }
-        
-        cell.fill(with: viewModel.items.value[indexPath.row],
-                  posterImagesRepository: posterImagesRepository)
-        
-        if indexPath.row == viewModel.items.value.count - 1 {
-            viewModel.didLoadNextPage()
-        }
-        
-        return cell
+
+    func willDismissSearchController(_ searchController: UISearchController) {
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.isEmpty ? tableView.frame.height : MoviesListItemCell.height
+
+    func didDismissSearchController(_ searchController: UISearchController) {
     }
 }
-
-extension MoviesListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectItem(at: indexPath.row)
-    }
-}
-

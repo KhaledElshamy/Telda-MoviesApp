@@ -23,7 +23,7 @@ extension MoviesResponseDTO {
     // MARK: - Result
     struct MovieDTO: Codable {
         let id: Int
-        let originalLanguage: OriginalLanguage
+        let originalLanguage: String
         let overview: String
         let posterPath, releaseDate, title: String
 //        let video: Bool
@@ -45,10 +45,6 @@ extension MoviesResponseDTO {
     }
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case zh = "zh"
-}
 
 // MARK: - Mappings to Domain
 
