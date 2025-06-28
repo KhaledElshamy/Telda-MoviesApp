@@ -61,7 +61,7 @@ final class DefaultMoviesListViewModel: MoviesListViewModel {
     let error: Observable<String> = Observable("")
     var isEmpty: Bool { return items.value.isEmpty }
     let screenTitle = NSLocalizedString("Movies", comment: "")
-    let emptyDataTitle = NSLocalizedString("Search results", comment: "")
+    let emptyDataTitle = NSLocalizedString("No Movies", comment: "")
     let errorTitle = NSLocalizedString("Error", comment: "")
     let searchBarPlaceholder = NSLocalizedString("Search Movies", comment: "")
     

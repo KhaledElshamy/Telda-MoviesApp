@@ -63,6 +63,7 @@ final class MoviesListViewController: UIViewController, StoryboardInstantiable, 
 
     // MARK: - Private
     private func setupViews() {
+        view.backgroundColor = .white
         title = viewModel.screenTitle
         emptyDataLabel.text = viewModel.emptyDataTitle
         setupSearchController()

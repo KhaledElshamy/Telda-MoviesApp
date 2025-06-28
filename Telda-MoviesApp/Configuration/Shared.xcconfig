@@ -11,7 +11,7 @@
 App_bundle_identifier = KhaledElshamy.MoviesApp
 App_name = TMDB Movies
 
-TMDB_api_base_url = api.themoviedb.org/3
-TMDB_image_base_url = image.tmdb.org/t/p/
-TMDB_api_key = e552d7e3015fad1250584f2616c1414c
+API_BASE_URL = api.themoviedb.org
+IMAGE_BASE_URL = image.tmdb.org
+API_KEY = e552d7e3015fad1250584f2616c1414c
 TMDB_access_token = Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNTUyZDdlMzAxNWZhZDEyNTA1ODRmMjYxNmMxNDE0YyIsIm5iZiI6MTc1MDg5NTc4Ny4zMTQsInN1YiI6IjY4NWM4Y2FiMjMzNGJmOGM2MDdiM2NiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IBcdUY7Kiivwf-wt-mSlZhScAD8ABn_vs88bZFoAw2c

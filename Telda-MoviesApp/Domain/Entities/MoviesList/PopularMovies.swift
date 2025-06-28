@@ -21,3 +21,21 @@ struct MoviesPage: Equatable {
     let totalPages: Int
     let movies: [Movie]
 }
+
+extension Array where Element == Movie {
+    func groupedByYear() -> [Int: [Movie]] {
+        var groupedMovies = [Int: [Movie]]()
+        for movie in self {
+            if let releaseDate = movie.releaseDate {
+                let calendar = Calendar.current
+                let year = calendar.component(.year, from: releaseDate)
+                if groupedMovies[year] != nil {
+                    groupedMovies[year]?.append(movie)
+                } else {
+                    groupedMovies[year] = [movie]
+                }
+            }
+        }
+        return groupedMovies
+    }
+}

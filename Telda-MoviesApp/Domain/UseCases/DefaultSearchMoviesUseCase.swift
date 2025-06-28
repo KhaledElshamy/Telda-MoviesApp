@@ -18,12 +18,10 @@ protocol SearchMoviesUseCase {
 class DefaultSearchMoviesUseCase: SearchMoviesUseCase {
     
     private let moviesRepository: MoviesRepository
-    private let moviesQueriesRepository: MoviesQueriesRepository
+//    private let moviesQueriesRepository: MoviesQueriesRepository
     
-    init(moviesRepository: MoviesRepository,
-         moviesQueriesRepository: MoviesQueriesRepository) {
+    init(moviesRepository: MoviesRepository) {
         self.moviesRepository = moviesRepository
-        self.moviesQueriesRepository = moviesQueriesRepository
     }
     
     func execute(
@@ -36,11 +34,6 @@ class DefaultSearchMoviesUseCase: SearchMoviesUseCase {
             page: requestValue.page,
             cached: cached
         ) { result in
-            if case .success = result {
-                self.moviesQueriesRepository.saveRecentQuery(
-                    query: requestValue.query,
-                    completion: {_ in})
-            }
             completion(result)
         }
     }

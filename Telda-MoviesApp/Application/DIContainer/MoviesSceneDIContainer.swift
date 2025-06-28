@@ -20,28 +20,32 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     lazy var moviesQueriesStorage: MoviesQueriesStorage = CoreDataMoviesQueriesStorage(maxStorageLimit: 10)
     lazy var moviesResponseCache: MoviesResponseStorage = CoreDataMoviesResponseStorage()
     
-    // MARK: - Persistent Storage
-//    lazy var moviesQueriesStorage: MoviesQueriesStorage = CoreDataMoviesQueriesStorage(maxStorageLimit: 10)
-//    lazy var moviesResponseCache: MoviesResponseStorage = CoreDataMoviesResponseStorage()
-    
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
     
     func makeMoviesListViewController(actions: MoviesListViewModelActions) -> MoviesListViewController {
-        MoviesListViewController.create(with: DefaultMoviesListViewModel(searchMoviesUseCase: makeSearchMoviesUseCase()),
+        MoviesListViewController.create(with: DefaultMoviesListViewModel(searchMoviesUseCase: makeSearchMoviesUseCase(),actions: actions),
                                         posterImagesRepository: makePosterImagesRepository())
     }
     
     func makeMoviesDetailsViewController(movie: Movie) -> UIViewController {
-        return UIViewController()
+        MovieDetailsViewController.create(
+            with: makeMoviesDetailsViewModel(movie: movie)
+        )
+    }
+    
+    func makeMoviesDetailsViewModel(movie: Movie) -> MovieDetailsViewModel {
+        DefaultMovieDetailsViewModel(
+            movie: movie,
+            posterImagesRepository: makePosterImagesRepository()
+        )
     }
     
     // MARK: - Use Cases
     func makeSearchMoviesUseCase() -> SearchMoviesUseCase {
         DefaultSearchMoviesUseCase(
-            moviesRepository: makeMoviesRepository(),
-            moviesQueriesRepository: makeMoviesQueriesRepository()
+            moviesRepository: makeMoviesRepository()
         )
     }
     
@@ -53,11 +57,11 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
         )
     }
     
-    func makeMoviesQueriesRepository() -> MoviesQueriesRepository {
-        DefaultMoviesQueriesRepository(
-            moviesQueriesPersistentStorage: moviesQueriesStorage
-        )
-    }
+//    func makeMoviesQueriesRepository() -> MoviesQueriesRepository {
+//        DefaultMoviesQueriesRepository(
+//            moviesQueriesPersistentStorage: moviesQueriesStorage
+//        )
+//    }
     
     func makePosterImagesRepository() -> PosterImagesRepository {
         DefaultPosterImagesRepository(
