@@ -1,21 +1,77 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MoviesListItemCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MoviesListItemCell" customModule="Telda_MoviesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qam-iG-Ksk">
+                        <rect key="frame" x="16" y="7.9999999999999982" width="35" height="22.333333333333329"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="199" translatesAutoresizingMaskIntoConstraints="NO" id="Tat-io-Iav">
+                        <rect key="frame" x="224" y="8" width="80" height="109"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="BbR-og-J6c"/>
+                            <constraint firstAttribute="height" constant="109" id="IIh-Su-5XS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Release Date" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-UO-qye">
+                        <rect key="frame" x="16" y="34" width="90" height="20"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tb-C7-Uno">
+                        <rect key="frame" x="16" y="60.000000000000007" width="71.333333333333329" height="22.333333333333336"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Tat-io-Iav" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="U1D-UO-qye" secondAttribute="trailing" constant="8" id="2gy-kE-6rY"/>
+                    <constraint firstItem="Tat-io-Iav" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8tb-C7-Uno" secondAttribute="trailing" constant="8" id="4Pv-wG-kcR"/>
+                    <constraint firstItem="Tat-io-Iav" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qam-iG-Ksk" secondAttribute="trailing" constant="8" id="Fa3-zO-GtG"/>
+                    <constraint firstItem="U1D-UO-qye" firstAttribute="leading" secondItem="Qam-iG-Ksk" secondAttribute="leading" id="LUl-Pk-7ta"/>
+                    <constraint firstItem="Tat-io-Iav" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="NL7-bc-QuY"/>
+                    <constraint firstItem="8tb-C7-Uno" firstAttribute="top" secondItem="U1D-UO-qye" secondAttribute="bottom" constant="6" id="OAC-8S-P2S"/>
+                    <constraint firstItem="Qam-iG-Ksk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QhJ-ux-2Tq"/>
+                    <constraint firstAttribute="trailing" secondItem="Tat-io-Iav" secondAttribute="trailing" constant="16" id="U1W-SR-WNO"/>
+                    <constraint firstItem="Qam-iG-Ksk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="YLS-nm-L0O"/>
+                    <constraint firstItem="U1D-UO-qye" firstAttribute="top" secondItem="Qam-iG-Ksk" secondAttribute="bottom" constant="3.5" id="afb-cu-BEf"/>
+                    <constraint firstItem="8tb-C7-Uno" firstAttribute="leading" secondItem="Qam-iG-Ksk" secondAttribute="leading" id="dN3-x5-xup"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="U1D-UO-qye" id="hhH-CK-1CQ"/>
+                <outlet property="overviewLabel" destination="8tb-C7-Uno" id="6K3-Rg-Ukq"/>
+                <outlet property="posterImageView" destination="Tat-io-Iav" id="jdL-nN-6Dy"/>
+                <outlet property="titleLabel" destination="Qam-iG-Ksk" id="ibr-rg-CeK"/>
+            </connections>
+            <point key="canvasLocation" x="208" y="4"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
