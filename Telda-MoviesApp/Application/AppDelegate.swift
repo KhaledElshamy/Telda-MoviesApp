@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.view.backgroundColor = .white
         
 //        AppAppearance.setupAppearance()
-//        window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController(rootViewController: vc)
 //
         window?.rootViewController = navigationController
