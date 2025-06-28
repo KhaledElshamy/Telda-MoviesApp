@@ -17,6 +17,10 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     private let dependencies: Dependencies
     
     // MARK: - Persistent Storage
+    lazy var moviesQueriesStorage: MoviesQueriesStorage = CoreDataMoviesQueriesStorage(maxStorageLimit: 10)
+    lazy var moviesResponseCache: MoviesResponseStorage = CoreDataMoviesResponseStorage()
+    
+    // MARK: - Persistent Storage
 //    lazy var moviesQueriesStorage: MoviesQueriesStorage = CoreDataMoviesQueriesStorage(maxStorageLimit: 10)
 //    lazy var moviesResponseCache: MoviesResponseStorage = CoreDataMoviesResponseStorage()
     
@@ -25,12 +29,34 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     }
     
     func makeMoviesListViewController(actions: MoviesListViewModelActions) -> MoviesListViewController {
-        MoviesListViewController.create(with: DefaultMoviesListViewModel(),
+        MoviesListViewController.create(with: DefaultMoviesListViewModel(searchMoviesUseCase: makeSearchMoviesUseCase()),
                                         posterImagesRepository: nil)
     }
     
     func makeMoviesDetailsViewController(movie: Movie) -> UIViewController {
         return UIViewController()
+    }
+    
+    // MARK: - Use Cases
+    func makeSearchMoviesUseCase() -> SearchMoviesUseCase {
+        DefaultSearchMoviesUseCase(
+            moviesRepository: makeMoviesRepository(),
+            moviesQueriesRepository: makeMoviesQueriesRepository()
+        )
+    }
+    
+    // MARK: - Repositories
+    func makeMoviesRepository() -> MoviesRepository {
+        DefaultMoviesRepository(
+            dataTransferService: dependencies.apiDataTransferService,
+            cache: moviesResponseCache
+        )
+    }
+    
+    func makeMoviesQueriesRepository() -> MoviesQueriesRepository {
+        DefaultMoviesQueriesRepository(
+            moviesQueriesPersistentStorage: moviesQueriesStorage
+        )
     }
     
     // MARK: - Flow Coordinators

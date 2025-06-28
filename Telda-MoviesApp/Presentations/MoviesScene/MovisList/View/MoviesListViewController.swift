@@ -31,7 +31,7 @@ class MoviesListViewController: UIViewController, StoryboardInstantiable, Alerta
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+//        setupViews()
         bind(to: viewModel)
     }
     

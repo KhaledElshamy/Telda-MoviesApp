@@ -11,43 +11,36 @@ import Foundation
 struct MoviesResponseDTO: Codable {
     let page: Int
     let results: [MovieDTO]
-    let totalPages, totalResults: Int
+    let totalPages:Int
 
     enum CodingKeys: String, CodingKey {
         case page, results
         case totalPages = "total_pages"
-        case totalResults = "total_results"
     }
 }
 
 extension MoviesResponseDTO {
     // MARK: - Result
     struct MovieDTO: Codable {
-        let adult: Bool
-        let backdropPath: String
-        let genreIDS: [Int]
         let id: Int
         let originalLanguage: OriginalLanguage
-        let originalTitle, overview: String
-        let popularity: Double
+        let overview: String
         let posterPath, releaseDate, title: String
-        let video: Bool
-        let voteAverage: Double
-        let voteCount: Int
+//        let video: Bool
+//        let voteAverage: Double
+//        let voteCount: Int
 
         enum CodingKeys: String, CodingKey {
-            case adult
-            case backdropPath = "backdrop_path"
-            case genreIDS = "genre_ids"
             case id
             case originalLanguage = "original_language"
-            case originalTitle = "original_title"
-            case overview, popularity
+//            case originalTitle = "original_title"
+            case overview
             case posterPath = "poster_path"
             case releaseDate = "release_date"
-            case title, video
-            case voteAverage = "vote_average"
-            case voteCount = "vote_count"
+            case title
+//            case video
+//            case voteAverage = "vote_average"
+//            case voteCount = "vote_count"
         }
     }
 }
