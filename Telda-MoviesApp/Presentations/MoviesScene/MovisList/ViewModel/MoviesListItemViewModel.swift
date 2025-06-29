@@ -12,6 +12,14 @@ struct MoviesListItemViewModel: Equatable {
     let overview: String
     let releaseDate: String
     let posterImagePath: String?
+    
+    var year: Int? {
+        let releaseDate = releaseDate
+        guard let date = dateFormatter.date(from: releaseDate) else {
+            return nil
+        }
+        return Calendar.current.component(.year, from: date)
+    }
 }
 
 extension MoviesListItemViewModel {

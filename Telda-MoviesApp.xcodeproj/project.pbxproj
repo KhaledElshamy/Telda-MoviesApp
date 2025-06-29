@@ -40,6 +40,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		0557FA4D2E11AA450058996C /* Configurations */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		0582E4172E0C0EEE009DDF85 /* Telda-MoviesApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -88,6 +93,7 @@
 		0582E40C2E0C0EEE009DDF85 = {
 			isa = PBXGroup;
 			children = (
+				0557FA4D2E11AA450058996C /* Configurations */,
 				0582E4172E0C0EEE009DDF85 /* Telda-MoviesApp */,
 				0582E4312E0C0EF0009DDF85 /* Telda-MoviesAppTests */,
 				0582E43B2E0C0EF0009DDF85 /* Telda-MoviesAppUITests */,
@@ -121,6 +127,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				0557FA4D2E11AA450058996C /* Configurations */,
 				0582E4172E0C0EEE009DDF85 /* Telda-MoviesApp */,
 			);
 			name = "Telda-MoviesApp";
@@ -182,7 +189,7 @@
 		0582E40D2E0C0EEE009DDF85 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
@@ -293,7 +300,7 @@
 				DEVELOPMENT_TEAM = F8QPFBNADD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Telda-MoviesApp/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "$(App_name)";
+				INFOPLIST_KEY_CFBundleDisplayName = "TMDB Movies";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -321,7 +328,7 @@
 				DEVELOPMENT_TEAM = F8QPFBNADD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Telda-MoviesApp/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "$(App_name)";
+				INFOPLIST_KEY_CFBundleDisplayName = "TMDB Movies";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -341,6 +348,8 @@
 		};
 		0582E4442E0C0EF0009DDF85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 0557FA4D2E11AA450058996C /* Configurations */;
+			baseConfigurationReferenceRelativePath = Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -404,6 +413,8 @@
 		};
 		0582E4452E0C0EF0009DDF85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 0557FA4D2E11AA450058996C /* Configurations */;
+			baseConfigurationReferenceRelativePath = Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

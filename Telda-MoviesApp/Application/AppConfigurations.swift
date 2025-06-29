@@ -8,28 +8,22 @@
 import Foundation
 
 final class AppConfiguration {
+        
     lazy var apiKey: String = {
-        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "TMDB_api_key") as? String else {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else {
             fatalError("ApiKey must not be empty in plist")
         }
         return apiKey
     }()
     
-    lazy var accessToken: String = {
-        guard let accessToken = Bundle.main.object(forInfoDictionaryKey: "TMDB_access_token") as? String else {
-            fatalError("ApiKey must not be empty in plist")
-        }
-        return accessToken
-    }()
-    
     lazy var apiBaseURL: String = {
-        guard let apiBaseURL = Bundle.main.object(forInfoDictionaryKey: "TMDB_api_base_url") as? String else {
+        guard let apiBaseURL = Bundle.main.object(forInfoDictionaryKey: "API_BASE_URL") as? String else {
             fatalError("ApiBaseURL must not be empty in plist")
         }
         return apiBaseURL
     }()
     lazy var imagesBaseURL: String = {
-        guard let imageBaseURL = Bundle.main.object(forInfoDictionaryKey: "TMDB_image_base_url") as? String else {
+        guard let imageBaseURL = Bundle.main.object(forInfoDictionaryKey: "IMAGE_BASE_URL") as? String else {
             fatalError("ApiBaseURL must not be empty in plist")
         }
         return imageBaseURL
