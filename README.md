@@ -1,8 +1,8 @@
-## Project Overview
+# Project Overview
 
 The Movies App is designed to provide users with a seamless experience for browsing and discovering movies. Built with Clean Architecture, this app ensures maintainability, scalability, and testability.
 
-# Architecture Overview
+##Architecture Overview
 The app is structured following the **Clean Architecture** principles using **MVVM**, which emphasize separation of concerns and independence of frameworks, UI, and databases. The main layers in this architecture are:
 **Presentation Layer**
 **Domain Layer**
