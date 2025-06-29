@@ -18,7 +18,6 @@ protocol SearchMoviesUseCase {
 class DefaultSearchMoviesUseCase: SearchMoviesUseCase {
     
     private let moviesRepository: MoviesRepository
-//    private let moviesQueriesRepository: MoviesQueriesRepository
     
     init(moviesRepository: MoviesRepository) {
         self.moviesRepository = moviesRepository

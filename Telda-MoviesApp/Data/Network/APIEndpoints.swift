@@ -32,4 +32,13 @@ struct APIEndpoints {
             responseDecoder: RawDataResponseDecoder()
         )
     }
+
+    static func getSimilarMovies(with moviesRequestDTO: SimilarMoviesRequestDTO,
+                                 movieId: Int) -> Endpoint<MoviesResponseDTO> {
+        return Endpoint(
+            path: "3/movie/\(movieId)/similar",
+            method: .get,
+            queryParametersEncodable: moviesRequestDTO
+        )
+    }
 }

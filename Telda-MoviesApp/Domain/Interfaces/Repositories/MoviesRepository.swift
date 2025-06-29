@@ -15,9 +15,12 @@ protocol MoviesRepository {
         cached: @escaping (MoviesPage) -> Void,
         completion: @escaping (Result<MoviesPage, Error>) -> Void
     ) -> Cancellable?
-    
-//    @discardableResult
-//    func fetchPopularMoviesList(page: Int,
-//                                cached: @escaping (MoviesPage) -> Void,
-//                                completion: @escaping (Result<MoviesPage, any Error>) -> Void) -> Cancellable?
 }
+
+//protocol SimilarMoviesRepository {
+//    @discardableResult
+//    func fecthSimilarMovies(
+//    movieId: Int,
+//    completion: @escaping (Result<[Movie], Error>) -> Void
+//    )-> Cancellable
+//}

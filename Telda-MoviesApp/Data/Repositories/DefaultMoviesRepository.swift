@@ -13,14 +13,16 @@ final class DefaultMoviesRepository {
     private let cache: MoviesResponseStorage
     private let backgroundQueue: DataTransferDispatchQueue
     
-    init(dataTransferService: DataTransferService, cache: MoviesResponseStorage, backgroundQueue: DataTransferDispatchQueue = DispatchQueue.global(qos: .userInitiated)) {
+    init(dataTransferService: DataTransferService,
+         cache: MoviesResponseStorage,
+         backgroundQueue: DataTransferDispatchQueue = DispatchQueue.global(qos: .userInitiated)) {
         self.dataTransferService = dataTransferService
         self.cache = cache
         self.backgroundQueue = backgroundQueue
     }
 }
 
-extension DefaultMoviesRepository: MoviesRepository {
+extension DefaultMoviesRepository: MoviesRepository {    
     
     func fetchMoviesList(query: MovieQuery,
                          page: Int,

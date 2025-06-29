@@ -150,6 +150,6 @@ extension DefaultMoviesListViewModel {
     }
 }
 
-private extension Array where Element == MoviesPage {
+extension Array where Element == MoviesPage {
     var movies: [Movie] { flatMap { $0.movies } }
 }

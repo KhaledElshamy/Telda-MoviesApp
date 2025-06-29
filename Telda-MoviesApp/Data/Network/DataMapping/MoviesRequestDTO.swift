@@ -12,6 +12,6 @@ struct MoviesRequestDTO: Encodable {
     let page: Int
 }
 
-struct PopularMoviesRequestDTO: Encodable {
+struct SimilarMoviesRequestDTO: Encodable {
     let page:Int
 }

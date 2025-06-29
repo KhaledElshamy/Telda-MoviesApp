@@ -38,7 +38,8 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     func makeMoviesDetailsViewModel(movie: Movie) -> MovieDetailsViewModel {
         DefaultMovieDetailsViewModel(
             movie: movie,
-            posterImagesRepository: makePosterImagesRepository()
+            posterImagesRepository: makePosterImagesRepository(),
+            fetchSimilarMoviesUseCase: makeSimilarMoviesUseCase()
         )
     }
     
@@ -49,12 +50,20 @@ final class MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
         )
     }
     
+    func makeSimilarMoviesUseCase() -> FetchSimilarMoviesUseCase {
+        DefaultFetchSimilarMoviesUseCase(moviesRepository: makeSimilarMoviesRepositories())
+    }
+    
     // MARK: - Repositories
     func makeMoviesRepository() -> MoviesRepository {
         DefaultMoviesRepository(
             dataTransferService: dependencies.apiDataTransferService,
             cache: moviesResponseCache
         )
+    }
+    
+    func makeSimilarMoviesRepositories() -> SimilarMoviesRepository {
+        DefaultSimilarMoviesRepository(dataTransferService: dependencies.apiDataTransferService)
     }
     
 //    func makeMoviesQueriesRepository() -> MoviesQueriesRepository {

@@ -9,7 +9,7 @@ import XCTest
 @testable import Telda_MoviesApp
 
 final class MovieDetailsViewModelTests: XCTestCase {
-
+    
     private enum PosterImageDownloadError: Error {
         case fail
     }
@@ -24,6 +24,7 @@ final class MovieDetailsViewModelTests: XCTestCase {
         let viewModel = DefaultMovieDetailsViewModel(
             movie: Movie.stub(posterPath: "posterPath"),
             posterImagesRepository: posterImagesRepository,
+            fetchSimilarMoviesUseCase: <#any FetchSimilarMoviesUseCase#>,
             mainQueue: DispatchQueueTypeMock()
         )
         

@@ -58,7 +58,7 @@ extension MoviesResponseDTO {
 
 extension MoviesResponseDTO.MovieDTO {
     func toDomain() -> Movie {
-        return .init(id: Movie.Identifier(id),
+        return .init(id: id,
                      title: title,
                      posterPath: posterPath,
                      overview: overview,
