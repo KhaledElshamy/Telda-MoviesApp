@@ -195,6 +195,7 @@
 					};
 					0582E4372E0C0EF0009DDF85 = {
 						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
 						TestTargetID = 0582E4142E0C0EEE009DDF85;
 					};
 				};
@@ -498,6 +499,7 @@
 		0582E44A2E0C0EF0009DDF85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8QPFBNADD;
@@ -506,6 +508,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "KhaledElshamy.Telda-MoviesAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Telda-MoviesApp";
@@ -515,6 +518,7 @@
 		0582E44B2E0C0EF0009DDF85 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8QPFBNADD;

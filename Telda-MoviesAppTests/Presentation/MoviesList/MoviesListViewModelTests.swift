@@ -70,6 +70,7 @@ final class MoviesListViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.hasMorePages)
         XCTAssertTrue(viewModel.items.value.isEmpty)
         XCTAssertEqual(searchMoviesUseCaseMock.executeCallCount, 1)
+        addTeardownBlock { [weak viewModel] in XCTAssertNil(viewModel) }
     }
     
     func test_whenSearchMoviesUseCaseRetrievesFirstPage_thenViewModelContainsOnlyFirstPage() {
@@ -95,6 +96,7 @@ final class MoviesListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.currentPage, 1)
         XCTAssertTrue(viewModel.hasMorePages)
         XCTAssertEqual(searchMoviesUseCaseMock.executeCallCount, 1)
+        addTeardownBlock { [weak viewModel] in XCTAssertNil(viewModel) }
     }
     
     func test_whenSearchMoviesUseCaseRetrievesFirstAndSecondPage_thenViewModelContainsTwoPages() {

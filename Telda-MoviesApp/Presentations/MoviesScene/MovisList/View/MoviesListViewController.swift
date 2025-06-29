@@ -121,9 +121,7 @@ extension MoviesListViewController {
         searchController.searchBar.autoresizingMask = [.flexibleWidth]
         searchBarContainer.addSubview(searchController.searchBar)
         definesPresentationContext = true
-        if #available(iOS 13.0, *) {
-            searchController.searchBar.searchTextField.accessibilityIdentifier = AccessibilityIdentifier.searchField
-        }
+        searchController.searchBar.searchTextField.accessibilityIdentifier = AccessibilityIdentifier.searchField
     }
 }
 
