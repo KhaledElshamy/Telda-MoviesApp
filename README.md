@@ -8,7 +8,7 @@ The app is structured following the **Clean Architecture** principles using **MV
 **Domain Layer**
 **Data Layer**
 
-#Layer Descriptions
+# Layer Descriptions
 
 **Presentation Layer**
 Purpose: This layer is responsible for displaying data to the user and handling user interactions.
