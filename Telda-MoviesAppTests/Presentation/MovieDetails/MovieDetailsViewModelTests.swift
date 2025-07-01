@@ -17,14 +17,20 @@ final class MovieDetailsViewModelTests: XCTestCase {
     func test_updatePosterImageWithWidthEventReceived_thenImageWithThisWidthIsDownloaded() {
         // given
         let posterImagesRepository = PosterImagesRepositoryMock()
-
+        
+        class DefaultfetchSimilarUseCaseMock: FetchSimilarMoviesUseCase {
+            func execute(movieId: Int, requestValue: Telda_MoviesApp.SimilarMoviesUseCaseRequestValue, completion: @escaping (Result<Telda_MoviesApp.MoviesPage, any Error>) -> Void) -> (any Telda_MoviesApp.Cancellable)? {
+                return nil
+            }
+        }
+        
         let expectedImage = "image data".data(using: .utf8)!
         posterImagesRepository.image = expectedImage
 
         let viewModel = DefaultMovieDetailsViewModel(
             movie: Movie.stub(posterPath: "posterPath"),
             posterImagesRepository: posterImagesRepository,
-            fetchSimilarMoviesUseCase: <#any FetchSimilarMoviesUseCase#>,
+            fetchSimilarMoviesUseCase: DefaultfetchSimilarUseCaseMock(),
             mainQueue: DispatchQueueTypeMock()
         )
         

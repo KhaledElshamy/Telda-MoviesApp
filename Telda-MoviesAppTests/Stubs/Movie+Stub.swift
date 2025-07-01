@@ -9,7 +9,7 @@ import Foundation
 @testable import Telda_MoviesApp
 
 extension Movie {
-    static func stub(id: Movie.Identifier = "id1",
+    static func stub(id: Int = 1,
                 title: String = "title1" ,
                 posterPath: String? = "/1",
                 overview: String = "overview1",
